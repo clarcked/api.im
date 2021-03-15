@@ -27,5 +27,18 @@ services:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
 
+    App\Events\Doctrine\EntityEventSubscriber:
+        autowire: true;
+        tags:
+            - { name: 'doctrine.event_subscriber' }
+
+    database.switcher:
+        public: true
+        class:  'App\Services\Database\ApiDatabaseSwitcher'
+        calls:
+            - method: setContainer
+              arguments:
+                  - "@service_container"
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
