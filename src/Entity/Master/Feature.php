@@ -8,9 +8,12 @@ use App\Repository\Master\FeatureRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=FeatureRepository::class)
  */
 class Feature extends BaseEntity
@@ -19,26 +22,31 @@ class Feature extends BaseEntity
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"write"})
      */
     private $cost;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $unit;
 
     /**
      * @ORM\ManyToMany(targetEntity=Project::class, mappedBy="features")
+     * @Groups({"write"})
      */
     private $projects;
 

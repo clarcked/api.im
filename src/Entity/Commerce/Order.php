@@ -4,12 +4,14 @@ namespace App\Entity\Commerce;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\BaseProject;
-use App\Interfaces\ProjectInterface;
 use App\Repository\Commerce\OrderRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=OrderRepository::class)
  * @ORM\Table(name="`Order`")
  */
@@ -19,21 +21,25 @@ class Order extends BaseProject
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"write"})
      */
     private $quantity;
 
     /**
      * @ORM\OneToOne(targetEntity=Stock::class, cascade={"persist", "remove"})
+     * @Groups({"write"})
      */
     private $stock;
 
     /**
      * @ORM\ManyToOne(targetEntity=Sale::class, inversedBy="orders")
+     * @Groups({"write"})
      */
     private $sale;
 

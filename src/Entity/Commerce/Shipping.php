@@ -6,9 +6,12 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\BaseProject;
 use App\Repository\Commerce\ShippingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=ShippingRepository::class)
  */
 class Shipping extends BaseProject
@@ -17,21 +20,25 @@ class Shipping extends BaseProject
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"write"})
      */
     private $cost;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Groups({"write"})
      */
     private $additional;
 
     /**
      * @ORM\Column(type="array", nullable=true)
+     * @Groups({"write"})
      */
     private $conditions = [];
 

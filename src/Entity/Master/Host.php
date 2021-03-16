@@ -8,9 +8,12 @@ use App\Repository\Master\HostRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=HostRepository::class)
  */
 class Host extends BaseEntity
@@ -19,26 +22,31 @@ class Host extends BaseEntity
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $region;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $ip;
 
     /**
      * @ORM\OneToMany(targetEntity=Project::class, mappedBy="host")
+     * @Groups({"write"})
      */
     private $projects;
 

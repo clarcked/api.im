@@ -7,13 +7,12 @@ use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Events;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
-use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-
 use function method_exists;
 
 /**
@@ -79,6 +78,9 @@ class EntityEventSubscriber implements EventSubscriber, LoggerAwareInterface
         $entity->setModifiedAt(new \DateTime());
         if (method_exists($entity, 'setStatus')) {
             $entity->setStatus('active');
+        }
+        if (method_exists($entity, 'setNote')) {
+            $entity->setStatus('');
         }
     }
 

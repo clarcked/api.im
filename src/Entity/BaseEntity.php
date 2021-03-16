@@ -6,12 +6,32 @@ namespace App\Entity;
 
 use App\Interfaces\EntityInterface;
 use DateTimeInterface;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 abstract class BaseEntity implements EntityInterface
 {
+    /**
+     * @ORM\Column(type="datetime")
+     * @var DateTimeInterface
+     */
     protected DateTimeInterface $createdAt;
+    /**
+     * @ORM\Column(type="datetime")
+     * @var DateTimeInterface
+     */
     protected DateTimeInterface $modifiedAt;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"write"})
+     * @var string
+     */
     protected string $status;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"write"})
+     * @var string
+     */
     protected string $note;
 
     /**

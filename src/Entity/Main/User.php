@@ -6,9 +6,12 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\BaseUser;
 use App\Repository\Main\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`User`")
  */
@@ -18,41 +21,49 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $password;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"write"})
      */
     private $apiKey;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"write"})
      */
     private $publicKey;
 
     /**
      * @ORM\Column(type="array")
+     * @Groups({"write"})
      */
     private $roles = [];
 
     /**
      * @ORM\OneToOne(targetEntity=Profile::class, cascade={"persist", "remove"})
+     * @Groups({"write"})
      */
     private $profile;
 

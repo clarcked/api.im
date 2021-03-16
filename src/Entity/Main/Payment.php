@@ -6,9 +6,12 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\BaseEntity;
 use App\Repository\Main\PaymentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=PaymentRepository::class)
  */
 class Payment extends BaseEntity
@@ -17,21 +20,25 @@ class Payment extends BaseEntity
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\OneToOne(targetEntity=PaymentMethod::class, cascade={"persist", "remove"})
+     * @Groups({"write"})
      */
     private $method;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $ref;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"write"})
      */
     private $amount;
 

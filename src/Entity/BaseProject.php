@@ -6,12 +6,14 @@ namespace App\Entity;
 
 use App\Interfaces\ProjectInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 abstract class BaseProject extends BaseEntity implements ProjectInterface
 {
     /**
      *
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"write"})
      * @var string
      */
     protected string $project;

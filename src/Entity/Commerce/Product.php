@@ -8,9 +8,12 @@ use App\Repository\Commerce\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=ProductRepository::class)
  */
 class Product  extends BaseProject
@@ -19,16 +22,19 @@ class Product  extends BaseProject
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\OneToOne(targetEntity=Stock::class, inversedBy="product", cascade={"persist", "remove"})
+     * @Groups({"write"})
      */
     private $stock;
 
     /**
      * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="products")
+     * @Groups({"write"})
      */
     private $tags;
 

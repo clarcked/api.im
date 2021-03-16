@@ -8,9 +8,12 @@ use App\Repository\Commerce\SaleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=SaleRepository::class)
  */
 class Sale extends BaseProject
@@ -19,31 +22,37 @@ class Sale extends BaseProject
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $customer;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"write"})
      */
     private $isForDelivery;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $location;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"write"})
      */
     private $payment;
 
     /**
      * @ORM\OneToMany(targetEntity=Order::class, mappedBy="sale")
+     * @Groups({"write"})
      */
     private $orders;
 

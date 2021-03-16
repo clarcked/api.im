@@ -6,9 +6,12 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\BaseEntity;
 use App\Repository\Main\ScheduleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=ScheduleRepository::class)
  */
 class Schedule extends BaseEntity
@@ -17,26 +20,31 @@ class Schedule extends BaseEntity
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"write"})
      */
     private $openTime;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"write"})
      */
     private $closeTime;
 
     /**
      * @ORM\Column(type="array", nullable=true)
+     * @Groups({"write"})
      */
     private $openDays = [];
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"write"})
      */
     private $timezone;
 

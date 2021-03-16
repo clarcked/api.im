@@ -6,9 +6,12 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\BaseProject;
 use App\Repository\Commerce\StockRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=StockRepository::class)
  */
 class Stock extends BaseProject
@@ -17,66 +20,79 @@ class Stock extends BaseProject
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"write"})
      */
     private $dateOfStockage;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"write"})
      */
     private $dateOfShipping;
 
     /**
      * @ORM\ManyToOne(targetEntity=Provider::class, inversedBy="stocks")
+     * @Groups({"write"})
      */
     private $provider;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"write"})
      */
     private $receipt;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Groups({"write"})
      */
     private $cost;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Groups({"write"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"write"})
      */
     private $quantity;
 
     /**
      * @ORM\OneToOne(targetEntity=Shipping::class, cascade={"persist", "remove"})
+     * @Groups({"write"})
      */
     private $shipping;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Groups({"write"})
      */
     private $tax;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"write"})
      */
     private $picture;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"write"})
      */
     private $seo;
 
     /**
      * @ORM\OneToOne(targetEntity=Product::class, mappedBy="stock", cascade={"persist", "remove"})
+     * @Groups({"write"})
      */
     private $product;
 

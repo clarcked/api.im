@@ -8,9 +8,12 @@ use App\Repository\Commerce\ProviderRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=ProviderRepository::class)
  */
 class Provider extends BaseProject
@@ -19,21 +22,25 @@ class Provider extends BaseProject
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"write"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"write"})
      */
     private $ref;
 
     /**
      * @ORM\OneToMany(targetEntity=Stock::class, mappedBy="provider")
+     * @Groups({"write"})
      */
     private $stocks;
 

@@ -6,9 +6,12 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\BaseEntity;
 use App\Repository\Main\SettingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Entity(repositoryClass=SettingRepository::class)
  */
 class Setting extends BaseEntity
@@ -17,31 +20,37 @@ class Setting extends BaseEntity
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"write"})
      */
     private $id;
 
     /**
      * @ORM\OneToOne(targetEntity=Seo::class, cascade={"persist", "remove"})
+     * @Groups({"write"})
      */
     private $seo;
 
     /**
      * @ORM\OneToOne(targetEntity=Location::class, cascade={"persist", "remove"})
+     * @Groups({"write"})
      */
     private $location;
 
     /**
      * @ORM\OneToOne(targetEntity=Schedule::class, cascade={"persist", "remove"})
+     * @Groups({"write"})
      */
     private $schedule;
 
     /**
      * @ORM\OneToOne(targetEntity=Location::class, cascade={"persist", "remove"})
+     * @Groups({"write"})
      */
     private $area;
 
     /**
      * @ORM\OneToOne(targetEntity=File::class, cascade={"persist", "remove"})
+     * @Groups({"write"})
      */
     private $picture;
 
