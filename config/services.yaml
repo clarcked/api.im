@@ -34,7 +34,7 @@ services:
 
     database.switcher:
         public: true
-        class:  'App\Services\Database\ApiDatabaseSwitcher'
+        class:  'App\Dbal\ApiDatabaseSwitcher'
         calls:
             - method: setContainer
               arguments:

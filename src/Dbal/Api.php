@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\Database;
+namespace App\Dbal;
 
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -10,14 +10,10 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class Api implements CompilerPassInterface
 {
-
-    /**
-     * @inheritDoc
-     */
     public function process(ContainerBuilder $container)
     {
         $container
-            ->getDefinition('doctrine.dbal.main_connection')
+            ->getDefinition('doctrine.dbal.dynamic_connection')
             ->addMethodCall('setDbSwitcher', [
                 new Reference('database.switcher')
             ]);

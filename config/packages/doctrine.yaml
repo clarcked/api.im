@@ -1,7 +1,7 @@
 doctrine:
   dbal:
     # IMPORTANT: You MUST configure your server version,
-    # either here or in the DATABASE_URL env var (see .env file)
+    # either here or in the DATABASE_URL env var (see .env.local file)
     #server_version: '13'
     default_connection: default
     connections:
@@ -16,7 +16,8 @@ doctrine:
         server_version: '5.7'
         charset: utf8mb4
       dynamic:
-        wrapper_class: 'App\Services\Database\ApiConnection'
+        wrapper_class: 'App\Dbal\ApiConnection'
+        driver: 'pdo_pgsql'
         charset: utf8mb4
       master:
         url: '%env(resolve:MASTER_DATABASE_URL)%'
@@ -29,7 +30,7 @@ doctrine:
         server_version: '5.7'
         charset: utf8mb4
   orm:
-    default_entity_manager: main
+    default_entity_manager: customer
     auto_generate_proxy_classes: true
     proxy_dir: '%kernel.cache_dir%/src/Proxies'
     entity_managers:

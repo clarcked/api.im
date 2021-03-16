@@ -1,8 +1,7 @@
 <?php
 
 
-namespace App\Services\Database;
-
+namespace App\Dbal;
 
 use App\Services\Http\Request;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
