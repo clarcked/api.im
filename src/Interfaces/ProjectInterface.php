@@ -8,5 +8,5 @@ interface ProjectInterface extends EntityInterface
 {
     function getProject();
 
-    function setProject($project);
+    function setProject(string $project);
 }
