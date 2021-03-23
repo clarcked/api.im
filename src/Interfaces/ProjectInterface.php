@@ -6,7 +6,7 @@ namespace App\Interfaces;
 
 interface ProjectInterface extends EntityInterface
 {
-    function getProject();
+    function getProject(): ?string;
 
-    function setProject(string $project);
+    function setProject(?string $project);
 }

@@ -13,26 +13,22 @@ abstract class BaseEntity implements EntityInterface
 {
     /**
      * @ORM\Column(type="datetime")
-     * @var DateTimeInterface
      */
-    protected DateTimeInterface $createdAt;
+    protected $createdAt;
     /**
      * @ORM\Column(type="datetime")
-     * @var DateTimeInterface
      */
-    protected DateTimeInterface $modifiedAt;
+    protected $modifiedAt;
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups({"write"})
-     * @var string
      */
-    protected string $status;
+    protected $status;
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups({"write"})
-     * @var string
      */
-    protected string $note;
+    protected $note;
 
     /**
      * @return DateTimeInterface
@@ -43,10 +39,10 @@ abstract class BaseEntity implements EntityInterface
     }
 
     /**
-     * @param DateTimeInterface $createdAt
+     * @param DateTimeInterface|null $createdAt
      * @return BaseEntity
      */
-    public function setCreatedAt(DateTimeInterface $createdAt): self
+    public function setCreatedAt(?DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
         return $this;
@@ -61,10 +57,10 @@ abstract class BaseEntity implements EntityInterface
     }
 
     /**
-     * @param DateTimeInterface $modifiedAt
+     * @param DateTimeInterface|null $modifiedAt
      * @return BaseEntity
      */
-    public function setModifiedAt(DateTimeInterface $modifiedAt): self
+    public function setModifiedAt(?DateTimeInterface $modifiedAt): self
     {
         $this->modifiedAt = $modifiedAt;
         return $this;
@@ -73,16 +69,16 @@ abstract class BaseEntity implements EntityInterface
     /**
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
-     * @param string $status
+     * @param string|null $status
      * @return BaseEntity
      */
-    public function setStatus(string $status): self
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
         return $this;
@@ -91,7 +87,7 @@ abstract class BaseEntity implements EntityInterface
     /**
      * @return string
      */
-    public function getNote(): string
+    public function getNote(): ?string
     {
         return $this->note;
     }
@@ -100,7 +96,7 @@ abstract class BaseEntity implements EntityInterface
      * @param string $note
      * @return BaseEntity
      */
-    public function setNote(string $note): self
+    public function setNote(?string $note): self
     {
         $this->note = $note;
         return $this;

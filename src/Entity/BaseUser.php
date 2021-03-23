@@ -11,9 +11,8 @@ abstract class BaseUser extends BaseEntity implements UserInterface
 {
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @var string
      */
-    protected string $salt;
+    protected $salt;
 
     /**
      * @return string

@@ -14,16 +14,15 @@ abstract class BaseProject extends BaseEntity implements ProjectInterface
      *
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups({"write"})
-     * @var string
      */
-    protected string $project;
+    protected $project;
 
     public function getProject(): string
     {
         return $this->project;
     }
 
-    public function setProject(string $project): self
+    public function setProject(?string $project): self
     {
         $this->project = $project;
         return $this;
