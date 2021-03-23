@@ -440,6 +440,9 @@
             "templates/base.html.twig"
         ]
     },
+    "symfony/twig-pack": {
+        "version": "v1.0.1"
+    },
     "symfony/validator": {
         "version": "4.3",
         "recipe": {
@@ -483,6 +486,9 @@
         "version": "2.2.3"
     },
     "twig/cssinliner-extra": {
+        "version": "v3.3.0"
+    },
+    "twig/extra-bundle": {
         "version": "v3.3.0"
     },
     "twig/twig": {
