@@ -3,6 +3,8 @@
 namespace App\Entity\Main;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Entity\BaseUser;
 use App\Repository\Main\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +14,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ApiResource(
  *     denormalizationContext={"groups"={"write"}}
  * )
+ * @ApiFilter(SearchFilter::class, properties={"email","username","apiKey", "publicKey"})
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`User`")
  */

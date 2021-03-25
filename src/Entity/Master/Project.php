@@ -39,25 +39,25 @@ class Project extends BaseEntity
     private $country;
 
     /**
-     * @ORM\OneToOne(targetEntity=Category::class, cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="projects", cascade={"persist"})
      * @Groups({"write"})
      */
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Collaborator::class, inversedBy="projects")
+     * @ORM\ManyToMany(targetEntity=Collaborator::class, inversedBy="projects", cascade={"persist"})
      * @Groups({"write"})
      */
     private $collabs;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Host::class, inversedBy="projects")
+     * @ORM\ManyToOne(targetEntity=Host::class, inversedBy="projects", cascade={"persist"})
      * @Groups({"write"})
      */
     private $host;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Feature::class, inversedBy="projects")
+     * @ORM\ManyToMany(targetEntity=Feature::class, inversedBy="projects", cascade={"persist"})
      * @Groups({"write"})
      */
     private $features;

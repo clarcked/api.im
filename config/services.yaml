@@ -31,6 +31,10 @@ services:
         autowire: true;
         tags:
             - { name: 'doctrine.event_subscriber' }
+    App\Events\Doctrine\UserEventSubscriber:
+        autowire: true;
+        tags:
+            - { name: 'doctrine.event_subscriber' }
 
     database.switcher:
         public: true

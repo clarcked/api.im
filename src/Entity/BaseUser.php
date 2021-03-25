@@ -12,7 +12,7 @@ abstract class BaseUser extends BaseEntity implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $salt;
+    protected $salt = "";
 
     /**
      * @return string
