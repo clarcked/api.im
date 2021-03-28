@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: api
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+      - ./packages/api/:/home
+    expose:
+      - 8000
+volumes:
+    api:

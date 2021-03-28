@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4373e8c920380df6aeb403e75c5945ae",
+    "content-hash": "4829b08539610119ceef948c2d278397",
     "packages": [
         {
             "name": "api-platform/core",
@@ -1829,16 +1829,16 @@
         },
         {
             "name": "jms/serializer",
-            "version": "3.12.1",
+            "version": "3.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "0887ce89d889b15205d24111908efec55a2bdf27"
+                "reference": "ea54838a0acd960839b7401bfd83fcd6ebe34aed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/0887ce89d889b15205d24111908efec55a2bdf27",
-                "reference": "0887ce89d889b15205d24111908efec55a2bdf27",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/ea54838a0acd960839b7401bfd83fcd6ebe34aed",
+                "reference": "ea54838a0acd960839b7401bfd83fcd6ebe34aed",
                 "shasum": ""
             },
             "require": {
@@ -1910,7 +1910,7 @@
             ],
             "support": {
                 "issues": "https://github.com/schmittjoh/serializer/issues",
-                "source": "https://github.com/schmittjoh/serializer/tree/3.12.1"
+                "source": "https://github.com/schmittjoh/serializer/tree/3.12.2"
             },
             "funding": [
                 {
@@ -1918,7 +1918,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-21T19:32:17+00:00"
+            "time": "2021-03-23T12:37:04+00:00"
         },
         {
             "name": "laminas/laminas-code",
@@ -4669,16 +4669,16 @@
         },
         {
             "name": "symfony/maker-bundle",
-            "version": "v1.30.1",
+            "version": "v1.30.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/maker-bundle.git",
-                "reference": "4021ece4955286e0816a34b3d545bf1a917afb0f"
+                "reference": "a395a85aa4ded6c1fa3da118d60329b64b6c2acd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/4021ece4955286e0816a34b3d545bf1a917afb0f",
-                "reference": "4021ece4955286e0816a34b3d545bf1a917afb0f",
+                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/a395a85aa4ded6c1fa3da118d60329b64b6c2acd",
+                "reference": "a395a85aa4ded6c1fa3da118d60329b64b6c2acd",
                 "shasum": ""
             },
             "require": {
@@ -4737,7 +4737,7 @@
             ],
             "support": {
                 "issues": "https://github.com/symfony/maker-bundle/issues",
-                "source": "https://github.com/symfony/maker-bundle/tree/v1.30.1"
+                "source": "https://github.com/symfony/maker-bundle/tree/v1.30.2"
             },
             "funding": [
                 {
@@ -4753,7 +4753,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-22T17:49:17+00:00"
+            "time": "2021-03-23T13:53:38+00:00"
         },
         {
             "name": "symfony/mime",
@@ -6640,23 +6640,23 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v5.1.11",
+            "version": "v5.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "b16d3e4b2d3f78fb2444aa8d19019f033e55ec56"
+                "reference": "0947ab1e3aabd22a6bef393874b2555d2bb976da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/b16d3e4b2d3f78fb2444aa8d19019f033e55ec56",
-                "reference": "b16d3e4b2d3f78fb2444aa8d19019f033e55ec56",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/0947ab1e3aabd22a6bef393874b2555d2bb976da",
+                "reference": "0947ab1e3aabd22a6bef393874b2555d2bb976da",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/polyfill-mbstring": "~1.0",
                 "symfony/polyfill-php80": "^1.15",
-                "symfony/translation-contracts": "^2"
+                "symfony/translation-contracts": "^2.3"
             },
             "conflict": {
                 "symfony/config": "<4.4",
@@ -6666,7 +6666,7 @@
                 "symfony/yaml": "<4.4"
             },
             "provide": {
-                "symfony/translation-implementation": "2.0"
+                "symfony/translation-implementation": "2.3"
             },
             "require-dev": {
                 "psr/log": "~1.0",
@@ -6686,6 +6686,9 @@
             },
             "type": "library",
             "autoload": {
+                "files": [
+                    "Resources/functions.php"
+                ],
                 "psr-4": {
                     "Symfony\\Component\\Translation\\": ""
                 },
@@ -6710,7 +6713,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v5.1.11"
+                "source": "https://github.com/symfony/translation/tree/v5.2.5"
             },
             "funding": [
                 {
@@ -6726,7 +6729,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T10:01:46+00:00"
+            "time": "2021-03-06T07:59:01+00:00"
         },
         {
             "name": "symfony/translation-contracts",
@@ -6922,16 +6925,16 @@
         },
         {
             "name": "symfony/twig-bundle",
-            "version": "v5.1.11",
+            "version": "v5.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bundle.git",
-                "reference": "88e5d5232f11f6db6610d5f4c2380f26e02ce92e"
+                "reference": "5ebbb5f0e8bfaa0b4b37cb25ff97f83b18caf221"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bundle/zipball/88e5d5232f11f6db6610d5f4c2380f26e02ce92e",
-                "reference": "88e5d5232f11f6db6610d5f4c2380f26e02ce92e",
+                "url": "https://api.github.com/repos/symfony/twig-bundle/zipball/5ebbb5f0e8bfaa0b4b37cb25ff97f83b18caf221",
+                "reference": "5ebbb5f0e8bfaa0b4b37cb25ff97f83b18caf221",
                 "shasum": ""
             },
             "require": {
@@ -6944,7 +6947,7 @@
                 "twig/twig": "^2.13|^3.0.4"
             },
             "conflict": {
-                "symfony/dependency-injection": "<4.4",
+                "symfony/dependency-injection": "<5.2",
                 "symfony/framework-bundle": "<5.0",
                 "symfony/translation": "<5.0"
             },
@@ -6952,7 +6955,7 @@
                 "doctrine/annotations": "^1.10.4",
                 "doctrine/cache": "~1.0",
                 "symfony/asset": "^4.4|^5.0",
-                "symfony/dependency-injection": "^4.4|^5.0",
+                "symfony/dependency-injection": "^5.2",
                 "symfony/expression-language": "^4.4|^5.0",
                 "symfony/finder": "^4.4|^5.0",
                 "symfony/form": "^4.4|^5.0",
@@ -6989,7 +6992,7 @@
             "description": "Provides a tight integration of Twig into the Symfony full-stack framework",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/twig-bundle/tree/v5.1.11"
+                "source": "https://github.com/symfony/twig-bundle/tree/v5.2.4"
             },
             "funding": [
                 {
@@ -7005,7 +7008,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T10:01:46+00:00"
+            "time": "2021-01-27T10:15:41+00:00"
         },
         {
             "name": "symfony/validator",

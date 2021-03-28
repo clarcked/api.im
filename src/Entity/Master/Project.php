@@ -3,6 +3,8 @@
 namespace App\Entity\Master;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Entity\BaseEntity;
 use App\Repository\Master\ProjectRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -14,6 +16,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ApiResource(
  *     denormalizationContext={"groups"={"write"}}
  * )
+ * @ApiFilter(SearchFilter::class, properties={"name", "country", "host" })
  * @ORM\Entity(repositoryClass=ProjectRepository::class)
  */
 class Project extends BaseEntity
