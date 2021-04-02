@@ -18,12 +18,12 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 abstract class BaseEventSubscriber implements EventSubscriber, LoggerAwareInterface
 {
 
-    protected $pw;
-    protected $req;
-    protected $params;
-    protected $logger;
-    protected $mailer;
-    protected $em;
+    protected UserPasswordEncoderInterface $pw;
+    protected RequestStack $req;
+    protected ParameterBagInterface $params;
+    protected LoggerInterface $logger;
+    protected MailerInterface $mailer;
+    protected EntityManagerInterface $em;
 
 
     public function __construct(
